@@ -10,12 +10,14 @@ protected:
 	static int dist;
 	string local;
 	string formato;
+	int numero;
 
 public:
-	Pista(int a);
-        string getLocal();
-        string getFormato();
-
+	Pista(static int i, string local, string formato, int numero);
+    string getLocal();
+    string getFormato();
+    int getNumero();
+    static int Pista::getDist();
 }
 
 #endif

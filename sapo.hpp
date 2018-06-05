@@ -15,9 +15,10 @@ protected:
 	int wins;
 	int empate;
 	int P_Total;
+
 public:
 	Sapo();
-	Sapo(string nome, int ident, int pulos, int provas, int wins, int empate, int pulos_total); 
+	Sapo(string nome, int ident, int pulos, int provas, int wins, int empate, int pulos_total);
 	string getNome();
 	int getIdent();
 	int getDist();
@@ -26,7 +27,12 @@ public:
 	int getWins();
 	int getEmpate();
 	int getP_Total();
-
+	void setPulos(int pulos);
+	void setDist(int dist);
+	void setProvas(int provas);
+	void setEmpate(int P_Total);
+	void setWins(int wins);
+	void setP_Total(int P_Total);
 };
 
 #endif
