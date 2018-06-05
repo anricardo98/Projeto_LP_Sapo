@@ -123,8 +123,14 @@ void Corrida::run(){
 		cin >> resposta;
 
 		if (resposta == 1){
-			string vetor[saparia.size()];
+			vector<Sapo*> vetor;
 			int vitoria;
+
+			for (i = 0, i < saparia.size(); i++){
+				saparia[i]->setDist(0);
+				saparia[i]->setPulos(0);
+			}
+
 			while (quant < saparia.size()){
 				for (i = 0; i < saparia.size(); i++){
 					if (saparia[i]->getDist() < dist_corrida){
@@ -144,14 +150,8 @@ void Corrida::run(){
 						cout << "Distancia do pulo: " << aleatorio << endl;
 						cout << "Distancia percorrida: " << soma << endl <<endl;
 
-						if (saparia[i]->getDist() > dist_corrida){
-							vetor[quant] = saparia[i]->getNome();
-							if (quant == 0){
-								vitoria = saparia[i]->getWins();
-								vitoria++;
-								saparia[i]->setWins(vitoria);
-							}
-							
+						if (saparia[i]->getDist() >= dist_corrida){
+							vetor.push_back(saparia[i]);
 							quant++;
 						}
 					}
@@ -160,7 +160,13 @@ void Corrida::run(){
 
 			cout << "Ranking" << endl;
 
+			int j;
+
 			for (i = 0; i < saparia.size(); i++){
+				if (vector[0]->getDist() == vector[i]->getDist()){
+					
+				}
+
 				cout << i+1 << "º - " << vetor[i];
 			}
 

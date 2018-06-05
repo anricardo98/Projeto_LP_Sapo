@@ -14,6 +14,8 @@ int main(){
 
 	Corrida info;
 
+	
+
 
 	while (loop == 1){
 		cerr << "O que voce deseja fazer?" << endl;
