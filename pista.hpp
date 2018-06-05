@@ -17,7 +17,7 @@ public:
     string getLocal();
     string getFormato();
     int getNumero();
-    static int Pista::getDist();
+    static int getDist();
 }
 
 #endif
