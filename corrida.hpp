@@ -5,6 +5,8 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <fstream>
+#include <cstdlib>
 #include "sapo.hpp"
 #include "pista.hpp"
 using namespace std;

@@ -1,13 +1,21 @@
 #include <iostream>
+#include <cstdlib>
 #include <vector>
 #include <string>
 #include <fstream>
 #include "sapo.hpp"
 #include "pista.hpp"
+#include "corrida.hpp"
 using namespace std;
 
 Corrida::Corrida(){
 
+}
+
+
+Corrida::~Corrida{
+	vector<Sapo*>::iterator x;
+	vector<Pista*>::iterator y;	 
 }
 
 void Corrida::adc_sapo(Sapo *frog){
@@ -55,7 +63,7 @@ void Corrida::stats_sapo(){
 
 	cout << "As estatisticas dos sapos são as seguintes" << endl;
 
-	for (filtro = saparia.begin(); filtro != saparia.end(); saparia++){
+	for (filtro = saparia.begin(); filtro != saparia.end(); filtro++){
 		cout << "Sapo: "<< saparia[i]->getNome() << endl;
 		cout << "Identificador: "<< saparia[i]->getIdent() << endl;
 		cout << "Pulos na ultima prova: "<< saparia[i]->getPulos() << endl;
@@ -72,8 +80,8 @@ void Corrida::stats_pista(){
 	vector<Pista*>::iterator filtro2;
 	int i = 0;
 
-	for (filtro = pistas.begin(); filtro != pistas.end(); pistas++){
-		cout << "Pista " << pistas[i]->getNumero() << endl;
+	for (filtro2 = pistas.begin(); filtro2 != pistas.end(); filtro2++){
+		cout << endl << "Pista " << pistas[i]->getNumero() << endl;
 		cout << "Formato: " << pistas[i]->getFormato() << endl;
 		cout << "Local: " << pistas[i]->getLocal() << endl;
 		cout << "Tamanho: " << pistas[i]->getDist() << endl;
@@ -84,17 +92,22 @@ void Corrida::stats_pista(){
 
 void Corrida::run(){
 	int resposta;
-	int quant = 0;
+	unsigned int quant = 0;
 	int aux = -1;
 	vector<Pista*>::iterator filtro3;
 	vector<Sapo*>::iterator filtro4;
 	static int dist_corrida;
-	int i = 0;
+	unsigned int i = 0;
+	int soma;
+	int pulo;
+	int aleatorio;
+	int posicao = 1;
+	int aux3 = 0;
 
-	cout << "Digite o numero da pista em que você deseja realizar a corrida" << endl;
+	cout << "Digite o identificador da pista em que você deseja realizar a corrida" << endl;
 	cin >> resposta;
 
-	for (filtro3 = pistas.begin(); filtro != pistas.end(); filtro3++){
+	for (filtro3 = pistas.begin(); filtro3 != pistas.end(); filtro3++){
 		if (pistas[i]->getNumero() == resposta){
 			dist_corrida = pistas[i]->getDist();
 			aux = 0;
@@ -107,10 +120,9 @@ void Corrida::run(){
 	}
 
 	else {
-		int soma;
-		int pulo;
+		
 		i = 0;
-		int aleatorio;
+
 		cout << "Sapos inscritos na corrida" << endl;
 
 		for (filtro4 = saparia.begin(); filtro4 != saparia.end(); filtro4++){
@@ -124,9 +136,8 @@ void Corrida::run(){
 
 		if (resposta == 1){
 			vector<Sapo*> vetor;
-			int vitoria;
 
-			for (i = 0, i < saparia.size(); i++){
+			for (i = 0; i < saparia.size(); i++){
 				saparia[i]->setDist(0);
 				saparia[i]->setPulos(0);
 			}
@@ -159,16 +170,27 @@ void Corrida::run(){
 			}
 
 			cout << "Ranking" << endl;
+			
+			cout << "Posicao " << 1 << vetor[0]->getNome();  
 
-			int j;
-
-			for (i = 0; i < saparia.size(); i++){
-				if (vector[0]->getDist() == vector[i]->getDist()){
-					
-				}
-
-				cout << i+1 << "º - " << vetor[i];
+			for (i = 1; i < saparia.size(); i++){
+				if (vetor[0]->getPulos() == vetor[i]->getPulos()){
+					vetor[i]->setEmpate(1 + vetor[i]->getEmpate());
+					aux3 = 1;
+				} else{
+					posicao++;
+				} 
+				
+				cout << "Posicao " << posicao << " " << vetor[i]->getNome() << endl;
+				
 			}
+
+			if (aux3 == 1){
+				vetor[0]->setEmpate(1 + vetor[0]->getEmpate());
+			} else {
+				vetor[0]->setWins(1 + vetor[0]->getWins());
+			}
+				
 
 			ofstream myfile;
 			myfile.open("sapo.txt");
@@ -176,25 +198,20 @@ void Corrida::run(){
 			i = 0;
 
 			if (myfile.is_open()){
-				for (filtro4 = saparia.begin(); filtro4 != saparia.end(); filtro4++){
-					if (i > 0){
-						myfile << "\n";
-					}
-
-					myfile << "\nSapo: " << (*filtro4)->getNome();
-					myfile << "\nIdenficador: " <<  (*filtro4)->getIdent();
-					myfile << "\nPulos: " <<  (*filtro4)->getPulos();
-					myfile << "\nProvas: " <<  (*filtro4)->getProvas();
-					myfile << "\nVitorias: " <<  (*filtro4)->getWins();
-					myfile << "\nEmpates: " <<  (*filtro4)->getEmpate();
-					myfile << "\nPulos_Totais: " <<  (*filtro4)->getP_Total();
-					i++;
+				for (i = 0; i < vetor.size(); i++){
+					myfile << "\n" << vetor[i]->getNome();
+					myfile << "\n" << vetor[i]->getIdent();
+					myfile << "\n" << vetor[i]->getPulos();
+					myfile << "\n" << vetor[i]->getProvas();
+					myfile << "\n" << vetor[i]->getWins();
+					myfile << "\n" << vetor[i]->getEmpate();
+					myfile << "\n" << vetor[i]->getP_Total();
 				}
 
 				myfile.close();
 
 			} else {
-				cout << "Impossivel abrir o arquivo"
+				cout << "Impossivel abrir o arquivo";
 			}
 
 		}

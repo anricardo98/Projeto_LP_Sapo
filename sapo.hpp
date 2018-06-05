@@ -1,8 +1,10 @@
 #ifndef SAPO_HPP
-#ifndef SAPO_HPP
+#define SAPO_HPP
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
+
 using namespace std;
 
 class Sapo{
@@ -30,7 +32,7 @@ public:
 	void setPulos(int pulos);
 	void setDist(int dist);
 	void setProvas(int provas);
-	void setEmpate(int P_Total);
+	void setEmpate(int empate);
 	void setWins(int wins);
 	void setP_Total(int P_Total);
 };

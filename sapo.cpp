@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <cstdlib>
 using namespace std;
 #include "sapo.hpp"
 
@@ -57,14 +58,14 @@ void Sapo::setPulos(int pulos){
 }
 
 void Sapo::setDist(int dist){
-	this->Dist_percorrida = dist;
+	this->dist_percorrida = dist;
 }
 
 void Sapo::setProvas(int provas){
 	this->provas = provas;
 }
 
-void Sapo::setEmpate(int P_Total){
+void Sapo::setEmpate(int empate){
 	this->empate = empate;
 }
 

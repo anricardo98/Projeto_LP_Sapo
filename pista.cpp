@@ -1,11 +1,14 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <fstring>
+#include <string>
+#include <cstdlib>
 using namespace std;
 #include "pista.hpp"
 
-Pista::Pista(static int i, string local, string formato, int numero){
+int Pista::dist;
+
+Pista::Pista(int i, string local, string formato, int numero){
 	dist = i;
 	this->local = local;
 	this->formato = formato;
@@ -19,10 +22,10 @@ string Pista::getFormato(){
 	return this->formato;
 }
 
-int Pista::getNumero{
-	retunr this->numero;
+int Pista::getNumero(){
+	return this->numero;
 }
 
-static int Pista::getDist(){
-	return this->dist;
+int Pista::getDist(){
+	return dist;
 }
