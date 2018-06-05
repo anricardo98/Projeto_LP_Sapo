@@ -10,7 +10,7 @@ $(PROG): $(OBJS)
 	$(CC) $(OBJS) -o $(PROG)
 
 main.o:
-	 $(CC) $(CPPFLAGS) -c main.cpp
+	$(CC) $(CPPFLAGS) -c main.cpp
 
 sapo.o: sapo.hpp
 	$(CC) $(CPPFLAGS) -c sapo.cpp
