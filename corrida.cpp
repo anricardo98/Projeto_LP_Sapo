@@ -214,11 +214,12 @@ void Corrida::run(){
 					myfile << "\n" << vetor[i]->getP_Total();
 				}
 
-				myfile.close();
 
 			} else {
 				cout << "Impossivel abrir o arquivo";
 			}
+
+			myfile.close();
 
 		}
 

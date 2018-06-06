@@ -188,11 +188,11 @@ int main(){
 				cout << "Não foi possivel abrir o arquivo";
 			}
 
-			myfile.close();
-
 			} else {
 				cout << "Resposta invalida" << endl;			
 			}
+
+			myfile.close();
 
 		}
 	return 0;
