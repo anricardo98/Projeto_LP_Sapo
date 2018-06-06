@@ -7,3 +7,15 @@ circulo
 brasil
 retangulo
 190
+9
+india
+circulo
+90
+8
+USA
+losango
+180
+2
+Argentina
+Quadrado
+100

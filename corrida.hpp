@@ -17,8 +17,8 @@ protected:
 	vector<Pista*> pistas;
 public:
 	Corrida();
-	void adc_sapo(Sapo *frog);
-	void adc_pista(Pista *runway);
+	int adc_sapo(Sapo *frog);
+	int adc_pista(Pista *runway);
 	void stats_sapo();
 	void stats_pista();
 	void run();

@@ -13,34 +13,37 @@ Corrida::Corrida(){
 }
 
 
-Corrida::~Corrida{
-	vector<Sapo*>::iterator x;
-	vector<Pista*>::iterator y;	 
-}
-
-void Corrida::adc_sapo(Sapo *frog){
+int Corrida::adc_sapo(Sapo *frog){
 	vector<Sapo*>::iterator analise;
 	int aux = 0;
+	int aux2 = 0;
 
 	for (analise = saparia.begin(); analise != saparia.end(); analise++){
 		if (((*analise)->getNome().compare(frog->getNome())) == 0 && (*analise)->getIdent() == frog->getIdent()){
 			aux = 1;
 		}
+
+		if ((*analise)->getIdent() == frog->getIdent()){
+		 	aux = 2;
+		} 
 	}
 
 	if (aux == 0){
 		saparia.push_back(frog);
-	}
-
-	else {
+		aux2 = 1;
+	} else if (aux == 1){
 		cout << "O sapo ja foi inicializado antes" << endl;
+	} else if (aux == 2){
+		cout << "Escolha outro identificador" << endl;
 	}
 
+	return aux2;
 }
 
-void Corrida::adc_pista(Pista *runway){
+int Corrida::adc_pista(Pista *runway){
 	vector<Pista*>::iterator analise2;
 	int aux = 0;
+	int aux2 = 0;
 
 	for (analise2 = pistas.begin(); analise2 != pistas.end(); analise2++){
 		if ((*analise2)->getNumero() == runway->getNumero()){
@@ -50,11 +53,14 @@ void Corrida::adc_pista(Pista *runway){
 
 	if (aux == 0){
 		pistas.push_back(runway);
+		aux2 = 1;
 	}
 
 	else {
-		cout << "A pista ja foi inicializada antes" << endl;
+		cout << "O identificador ja foi utilizado antes" << endl;
 	}
+
+	return aux2;
 }
 
 void Corrida::stats_sapo(){
@@ -154,7 +160,7 @@ void Corrida::run(){
 						pulo++;
 						saparia[i]->setPulos(pulo);
 
-						saparia[i]->setP_Total(pulo + saparia[i]->getP_Total());
+						saparia[i]->setP_Total(1 + saparia[i]->getP_Total());
 
 						cout << "Sapo " << saparia[i]->getNome() << endl; 
 						cout << "Pulo: "<< pulo << endl;
@@ -171,7 +177,7 @@ void Corrida::run(){
 
 			cout << "Ranking" << endl;
 			
-			cout << "Posicao " << 1 << vetor[0]->getNome();  
+			cout << "Posicao " << "1 " << vetor[0]->getNome() << endl;  
 
 			for (i = 1; i < saparia.size(); i++){
 				if (vetor[0]->getPulos() == vetor[i]->getPulos()){
@@ -181,7 +187,7 @@ void Corrida::run(){
 					posicao++;
 				} 
 				
-				cout << "Posicao " << posicao << " " << vetor[i]->getNome() << endl;
+				cout << endl << "Posicao " << posicao << " " << vetor[i]->getNome() << endl;
 				
 			}
 

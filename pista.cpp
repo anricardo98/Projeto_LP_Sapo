@@ -6,7 +6,6 @@
 using namespace std;
 #include "pista.hpp"
 
-int Pista::dist;
 
 Pista::Pista(int i, string local, string formato, int numero){
 	dist = i;

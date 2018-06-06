@@ -19,10 +19,11 @@ int main(){
 	int aux_wins;
 	int aux_p_total;
 	int aux_provas;
-	static int aux_dist;
+	int aux_dist;
 	string aux_local;
 	string aux_formato;
 	int aux_numero;
+	int aux; 
 	
 	Corrida info;
 
@@ -126,24 +127,26 @@ int main(){
 		cin >> p_total;
 
 		Sapo *salvo = new Sapo(nome, ident, pulos, provas, wins, empate, p_total);
-		info.adc_sapo(salvo);
+		aux = info.adc_sapo(salvo);
 		delete salvo;
 
-		ofstream myfile;
-		myfile.open("sapo.txt", ios::out | ios::app);
+		if (aux == 1){
+			ofstream myfile;
+			myfile.open("sapo.txt", ios::out | ios::app);
 
-		if (myfile.is_open()){
-			myfile << "\n" << nome;
-			myfile << "\n" << ident;
-			myfile << "\n" << pulos;
-			myfile << "\n" << provas;
-			myfile << "\n" << wins;
-			myfile << "\n" << empate;
-			myfile << "\n" << p_total;
+			if (myfile.is_open()){	
+				myfile << "\n" << nome;
+				myfile << "\n" << ident;
+				myfile << "\n" << pulos;
+				myfile << "\n" << provas;
+				myfile << "\n" << wins;
+				myfile << "\n" << empate;
+				myfile << "\n" << p_total;
 
-		} else cout << "Não foi possivel abrir o arquivo";
+			} else cout << "Não foi possivel abrir o arquivo";
 
-		myfile.close();
+			myfile.close();
+		}
 
 	} else if (resposta == 5){
 
@@ -169,27 +172,28 @@ int main(){
 		cin >> numero;
 
 		Pista *salvo = new Pista(dist, formato, local, numero);
-		info.adc_pista(salvo);
+		aux = info.adc_pista(salvo);
 		delete salvo;
 
-		ofstream myfile;
-		myfile.open("pista.txt", ios::out | ios::app);
+		if (aux == 1){
+			ofstream myfile;
+			myfile.open("pista.txt", ios::out | ios::app);
 
-		if (myfile.is_open()){
-			myfile << "\n" << numero;
-			myfile << "\n" << local;
-			myfile << "\n"  << formato;
-			myfile << "\n" << dist;
-		} else {
-			cout << "Não foi possivel abrir o arquivo";
+			if (myfile.is_open()){
+				myfile << "\n" << numero;
+				myfile << "\n" << local;
+				myfile << "\n"  << formato;
+				myfile << "\n" << dist;
+			} else {
+				cout << "Não foi possivel abrir o arquivo";
+			}
+
+			myfile.close();
+
+			} else {
+				cout << "Resposta invalida" << endl;			
+			}
+
 		}
-
-		myfile.close();
-
-		} else {
-			cout << "Resposta invalida" << endl;			
-		}
-
-
 	return 0;
 }
