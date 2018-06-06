@@ -3,13 +3,24 @@
 #include <string>
 #include <fstream>
 #include <cstdlib>
-using namespace std;
 #include "sapo.hpp"
+using namespace std;
 
+/**
+*@file main.cpp
+*@brief *@brief Arquivo .cpp para a declaração de como os métodos da classe Sapo atuam no funcionamento do programa.
+*@author Andre Ricardo
+*@since 02/06/2018
+*@date 06/06/2018
+*@version 2.0
+*/
+
+/*@brief Declaração do construtor do construtor padrão da classe Sapo*/
 Sapo::Sapo(){
 
 }
-	
+
+/*@brief Declaração do contrutor que atribui os valores de cada atributo da classe Sapo*/	
 Sapo::Sapo(string nome, int ident, int pulos, int provas, int wins, int empate, int pulos_total){
 	this->nome = nome;
 	this->ident = ident;
@@ -21,6 +32,7 @@ Sapo::Sapo(string nome, int ident, int pulos, int provas, int wins, int empate, 
 	this->dist_percorrida = 0;
 }
 
+/*@brief Declaração dos gets dos atributos da classe Sapo*/
 string Sapo::getNome(){
 	return this->nome;
 }
@@ -53,6 +65,7 @@ int Sapo::getP_Total(){
 	return this->P_Total;
 }
 
+/*@brief Declaração dos sets dos atributos da classe Sapo*/
 void Sapo::setPulos(int pulos){
 	this->pulos = pulos;
 }

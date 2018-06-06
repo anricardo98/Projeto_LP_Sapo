@@ -4,12 +4,20 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-
 using namespace std;
+
+/**
+*@file main.cpp
+*@brief Arquivo .hpp para o documento sapo.cpp, onde ocorre a declaração dos métodos e atributos da classe Sapo 
+*@author Andre Ricardo
+*@since 02/06/2018
+*@date 06/06/2018
+*@version 2.0
+*/
 
 class Sapo{
 protected:
-	string nome;
+	string nome; 
 	int ident;
 	int dist_percorrida;
 	int pulos;

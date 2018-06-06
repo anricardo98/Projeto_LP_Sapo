@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 #include <string>
 #include <vector>
 #include <fstream>
@@ -8,6 +7,18 @@ using namespace std;
 #include "corrida.hpp"
 #include "pista.hpp"
 #include "sapo.hpp"
+using namespace std;
+
+/**
+*@file main.cpp
+*@brief Arquivo main do programa que gerencia a corrida de sapos.
+*@author Andre Ricardo
+*@since 02/06/2018
+*@date 06/06/2018
+*@version 2.0
+*/
+
+/*@brief Ĺink para o github onde este arquivo está disponibilizado: https://github.com/anricardo98/Projeto_LP_Sapo*/
 
 int main(){
 
@@ -92,6 +103,7 @@ int main(){
 
 	} else if (resposta == 3){
 
+		srand(time(NULL));
 		info.run();
 
 	} else if (resposta == 4){

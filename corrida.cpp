@@ -8,11 +8,21 @@
 #include "corrida.hpp"
 using namespace std;
 
+/**
+*@file corrida.cpp
+*@brief Arquivo .cpp resposável pela realização das ações, seja para mostrar as estatisticas, realizar a adição de um novo elemento ou realizar a corrida em si.
+*@author Andre Ricardo
+*@since 02/06/2018
+*@date 06/06/2018
+*@version 2.0
+*/
+
+/*@brief Declaração do construtor do construtor padrão da classe Pista*/
 Corrida::Corrida(){
 
 }
 
-
+/*@brief Método responsável por adicionar um sapo a lista de sapo já existentes*/
 int Corrida::adc_sapo(Sapo *frog){
 	vector<Sapo*>::iterator analise;
 	int aux = 0;
@@ -40,6 +50,7 @@ int Corrida::adc_sapo(Sapo *frog){
 	return aux2;
 }
 
+/*@brief Método responsável por adicionar uma pista a lista de pistas já existentes*/
 int Corrida::adc_pista(Pista *runway){
 	vector<Pista*>::iterator analise2;
 	int aux = 0;
@@ -63,6 +74,7 @@ int Corrida::adc_pista(Pista *runway){
 	return aux2;
 }
 
+/*@brief Método responsável por imprimir as estatisticas de cada sapo*/
 void Corrida::stats_sapo(){
 	vector<Sapo*>::iterator filtro;
 	int i = 0;
@@ -82,6 +94,7 @@ void Corrida::stats_sapo(){
 
 }
 
+/*@brief Método responsável por imprimir as estatisticas de cada pista*/
 void Corrida::stats_pista(){
 	vector<Pista*>::iterator filtro2;
 	int i = 0;
@@ -96,6 +109,7 @@ void Corrida::stats_pista(){
 
 }
 
+/*@brief Método responsável pela realização da corrida e disponibilização do ranking*/
 void Corrida::run(){
 	int resposta;
 	unsigned int quant = 0;
@@ -108,6 +122,7 @@ void Corrida::run(){
 	int pulo;
 	int aleatorio;
 	int posicao = 1;
+	int j = 0;
 	int aux3 = 0;
 
 	cout << "Digite o identificador da pista em que você deseja realizar a corrida" << endl;
@@ -163,6 +178,7 @@ void Corrida::run(){
 						saparia[i]->setP_Total(1 + saparia[i]->getP_Total());
 
 						cout << "Sapo " << saparia[i]->getNome() << endl; 
+						cout << "Identificador " << saparia[i]->getIdent() << endl;
 						cout << "Pulo: "<< pulo << endl;
 						cout << "Distancia do pulo: " << aleatorio << endl;
 						cout << "Distancia percorrida: " << soma << endl <<endl;
@@ -177,17 +193,26 @@ void Corrida::run(){
 
 			cout << "Ranking" << endl;
 			
-			cout << "Posicao " << "1 " << vetor[0]->getNome() << endl;  
+			cout << "Posicao " << "1 " << vetor[0]->getNome() << " " << vetor[0]->getIdent() << endl; 
+			cout << "Numero de pulos:" << vetor[0]->getPulos() << endl;  
 
 			for (i = 1; i < saparia.size(); i++){
 				if (vetor[0]->getPulos() == vetor[i]->getPulos()){
+			
 					vetor[i]->setEmpate(1 + vetor[i]->getEmpate());
 					aux3 = 1;
-				} else{
+			
+				} else if (vetor[j]->getPulos() == vetor[i]->getPulos()){
+			
+					posicao = posicao;
+			
+				} else {
+					j = i;
 					posicao++;
 				} 
 				
-				cout << endl << "Posicao " << posicao << " " << vetor[i]->getNome() << endl;
+				cout << endl << "Posicao " << posicao << " " << ": " << vetor[i]->getNome() << " " << vetor[i]->getIdent() << endl;
+				cout << "Numero de pulos:" << vetor[i]->getPulos() << endl;
 				
 			}
 
