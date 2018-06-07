@@ -16,9 +16,7 @@ using namespace std;
 */
 
 /*@brief Declaração do construtor do construtor padrão da classe Sapo*/
-Sapo::Sapo(){
-
-}
+Sapo::Sapo(){}
 
 /*@brief Declaração do contrutor que atribui os valores de cada atributo da classe Sapo*/	
 Sapo::Sapo(string nome, int ident, int pulos, int provas, int wins, int empate, int pulos_total){
@@ -65,7 +63,7 @@ int Sapo::getP_Total(){
 	return this->P_Total;
 }
 
-/*@brief Declaração dos sets dos atributos da classe Sapo*/
+/*@brief Declaração dos sets de atributos da classe Sapo*/
 void Sapo::setPulos(int pulos){
 	this->pulos = pulos;
 }

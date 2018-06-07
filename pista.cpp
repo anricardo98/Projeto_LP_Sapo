@@ -16,9 +16,7 @@ using namespace std;
 */
 
 /*@brief Declaração do construtor do construtor padrão da classe Pista*/
-Pista::Pista(){
-
-}
+Pista::Pista(){}
 
 /*@brief Declaração do contrutor que atribui os valores de cada atributo da classe Pista*/	
 Pista::Pista(int i, string local, string formato, int numero){

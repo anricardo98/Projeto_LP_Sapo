@@ -17,14 +17,17 @@ using namespace std;
 
 class Pista{
 protected:
-	string local;
-	string formato;
-	int numero;
-	int dist;
+	string local; /*@brief Declaração da variável que armazenará o local da pista*/
+	string formato; /*@brief Declaração da variável que armazenará o formato da pista*/
+	int numero; /*@brief Declaração da variável que armazenará o identificador da pista*/
+	int dist; /*@brief Declaração da variável que armazenará o tamanho da pista*/
 
 public:
+	/*@brief Declaração dos construtores*/
 	Pista();
 	Pista(int i, string local, string formato, int numero);
+
+	/*@brief Declaração das funções get dos atributos*/
     string getLocal();
     string getFormato();
     int getNumero();

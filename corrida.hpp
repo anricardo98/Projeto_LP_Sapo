@@ -22,15 +22,15 @@ using namespace std;
 
 class Corrida{
 protected:
-	vector<Sapo*> saparia;
-	vector<Pista*> pistas;
+	vector<Sapo*> saparia; /*@brief Vetor que armazenará todos os sapos*/
+	vector<Pista*> pistas; /*@brief Vetor que armazenará todas as pistas*/
 public:
-	Corrida();
-	int adc_sapo(Sapo *frog);
-	int adc_pista(Pista *runway);
-	void stats_sapo();
-	void stats_pista();
-	void run();
+	Corrida(); /*@brief Declaração do construtor do construtor padrão*/
+	int adc_sapo(Sapo *frog); /*@brief Declaração da função responsável pela adição de um sapo ao vetor com todos*/
+	int adc_pista(Pista *runway); /*@brief Declaração da função responsável pela adição de uma pista ao vetor com todas*/
+	void stats_sapo(); /*@brief Declaração da função responsável pela mostragem das estatísticas de cada um dos sapos*/
+	void stats_pista(); /*@brief Declaração da função responsável pela mostragem das estatísticas de cada uma das pistas*/
+	void run(); /*@brief Declaração da função responsável pela realização da corrida*/
 };
 
 

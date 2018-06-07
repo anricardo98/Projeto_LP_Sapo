@@ -18,9 +18,7 @@ using namespace std;
 */
 
 /*@brief Declaração do construtor do construtor padrão da classe Pista*/
-Corrida::Corrida(){
-
-}
+Corrida::Corrida(){}
 
 /*@brief Método responsável por adicionar um sapo a lista de sapo já existentes*/
 int Corrida::adc_sapo(Sapo *frog){
@@ -114,8 +112,6 @@ void Corrida::run(){
 	int resposta;
 	unsigned int quant = 0;
 	int aux = -1;
-	vector<Pista*>::iterator filtro3;
-	vector<Sapo*>::iterator filtro4;
 	static int dist_corrida;
 	unsigned int i = 0;
 	int soma;
@@ -128,12 +124,11 @@ void Corrida::run(){
 	cout << "Digite o identificador da pista em que você deseja realizar a corrida" << endl;
 	cin >> resposta;
 
-	for (filtro3 = pistas.begin(); filtro3 != pistas.end(); filtro3++){
+	for (i = 0; i < pistas.size(); i++){
 		if (pistas[i]->getNumero() == resposta){
 			dist_corrida = pistas[i]->getDist();
 			aux = 0;
 		}
-		i++;
 	}
 
 	if (aux == -1){
@@ -142,14 +137,11 @@ void Corrida::run(){
 
 	else {
 		
-		i = 0;
-
 		cout << "Sapos inscritos na corrida" << endl;
 
-		for (filtro4 = saparia.begin(); filtro4 != saparia.end(); filtro4++){
+		for (i = 0; i < saparia.size(); i++){
 			cout << "Sapo: " << saparia[i]->getNome() << endl;
 			cout << "Identificador: " << saparia[i]->getIdent() << endl << endl;
-			i++;
 		}
 
 		cout << "Digite '1' para iniciar a corrida" << endl;
@@ -184,6 +176,7 @@ void Corrida::run(){
 						cout << "Distancia percorrida: " << soma << endl <<endl;
 
 						if (saparia[i]->getDist() >= dist_corrida){
+							saparia[i]->setProvas(1 + saparia[i].getProvas());
 							vetor.push_back(saparia[i]);
 							quant++;
 						}
