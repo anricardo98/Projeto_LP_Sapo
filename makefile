@@ -10,16 +10,16 @@ $(PROG): $(OBJS)
 	$(CC) $(OBJS) -o $(PROG)
 
 main.o:
-	$(CC) $(CPPFLAGS) -c main.cpp
+	$(CC) $(CPPFLAGS) -c src/main.cpp
 
-sapo.o: sapo.hpp
-	$(CC) $(CPPFLAGS) -c sapo.cpp
+sapo.o: include/sapo.hpp
+	$(CC) $(CPPFLAGS) -c src/sapo.cpp
 
-pista.o: pista.hpp
-	$(CC) $(CPPFLAGS) -c pista.cpp
+pista.o: include/pista.hpp
+	$(CC) $(CPPFLAGS) -c src/pista.cpp
 
-corrida.o: corrida.hpp
-	$(CC) $(CPPFLAGS) -c corrida.cpp
+corrida.o: include/corrida.hpp
+	$(CC) $(CPPFLAGS) -c src/corrida.cpp
 
 clean:
 	rm -f *.o
