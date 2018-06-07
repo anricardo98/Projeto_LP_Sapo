@@ -1,4 +1,3 @@
-
 1
 japao
 circulo
@@ -11,11 +10,7 @@ retangulo
 india
 circulo
 90
-4
-USA
-losango
-180
-5
-Argentina
-Quadrado
-100
+23
+miami
+circulo
+1

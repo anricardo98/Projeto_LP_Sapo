@@ -36,7 +36,6 @@ int main(){
 	string aux_local;
 	string aux_formato;
 	int aux_numero;
-	
 	int aux; /*@brief Declaração de uma variável que indicará se adiciona um sapo ou pista ao seu arquivo*/
 	
 	Corrida info; /*@brief Chamada de uma variável "info" do tipo Corrida*/
@@ -61,8 +60,7 @@ int main(){
 			 /*@brief Declaração de um sapo com as informações obtidas do arquivos*/
 			Sapo *frog_ = new Sapo(aux_nome, aux_ident, aux_pulo , aux_provas, aux_wins, aux_empate, aux_p_total);
 
-			info.adc_sapo(frog_); /*@brief Adição do sapo declarado ao vetor com todos os sapos*/
-			delete frog_;  /*@brief Deletando o ponteiro frog_*/
+			aux = info.adc_sapo(frog_); /*@brief Adição do sapo declarado ao vetor com todos os sapos*/
 		}
 
 	} else { /*@brief Caso o arquivo não esteja aberto, imprimirá essa mensagem*/
@@ -89,9 +87,7 @@ int main(){
 			/*@brief Declaração de uma pista com as informações obtidas do arquivos*/
 			Pista *runway_ = new Pista(aux_dist, aux_local, aux_formato, aux_numero);
 
-
-			info.adc_pista(runway_); /*@brief Adição da pista declarada ao vetor com todos as pistas*/
-			delete runway_; /*@brief Deletando o ponteiro runway_*/
+			aux = info.adc_pista(runway_); /*@brief Adição da pista declarada ao vetor com todos as pistas*/
 		}
 
 	} else { /*@brief Caso o arquivo não esteja aberto, imprimirá essa mensagem*/
@@ -123,7 +119,7 @@ int main(){
 		srand(time(NULL)); /*@brief Reiniciará o seed do randomico*/
 		info.run(); /*@brief Função responsável pela realização da corrida*/
 
-	} else if (resposta == 4){ /*@brief */
+	} else if (resposta == 4){ /*@brief Caso em que se deseja criar um novo sapo*/
 
 		/*@brief Declaração das variavéis que irão receber os dados do sapo, indicados pelo usuário*/
 		string nome;
@@ -187,7 +183,7 @@ int main(){
 					myfile << "\n" << p_total;
 
 				} else { /*@brief Se não estiver aberto, mostrará a seguinte mensagem*/
-					cout << "Não foi possivel abrir o arquivo";
+					cout << "Não foi possivel abrir o arquivo" << endl;
 				}
 
 				myfile.close(); /*@brief Fechando o arquivo "sapo.txt"*/
@@ -196,10 +192,10 @@ int main(){
 			}
 
 		} else {  /*@brief Caso as informações nao sejam possíveis*/
-			cerr << "Informações desconexas, tente novamente";
+			cerr << "Informações desconexas, tente novamente" << endl;
 		}
 
-	} else if (resposta == 5){
+	} else if (resposta == 5){ /*@brief Caso em que se deseja criar uma nova pista*/
 
 		/*@brief Declaração das variavéis que irão receber os dados da pista, indicados pelo usuário*/
 		string formato;
@@ -256,5 +252,6 @@ int main(){
 		}
 		
 	}
+
 	return 0; /*@brief Termino do programa*/
 }
